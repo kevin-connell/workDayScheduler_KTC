@@ -1,6 +1,4 @@
-console.log(moment().format('dddd, MMMM Do YYYY'))
 $("#currentDate").text(moment().format('dddd, MMMM Do YYYY'))
-console.log(moment().format('H'));
 
 for (hour = 9; hour < 18; hour++) {
     if (hour < moment().format('H')) {
@@ -14,14 +12,14 @@ for (hour = 9; hour < 18; hour++) {
     } 
 }
 
-// $("button").on("click", function(){
-//     console.log($("this").attr("id"))
-// })
+var schedule = JSON.parse(localStorage.getItem("localSchedule")) || ["" , "" , "" , "" , "" , "" , "" , "" , ""]
 
+for (index = 0; index < schedule.length; index++) {
+    $("#" + (index + 9)).val(schedule[index]) 
+}
 
-// if (hour = moment().format('H')) {
-//     $("#" + hour).addClass("present");
-// }
-// if (hour > moment().format('H')) {
-//     $("#" + hour).addClass("future");
-// }
+$('button').click(function () {
+    var indNum = (parseInt($(this).attr('id'))) - 9
+    schedule[indNum]= $("#" + (parseInt($(this).attr('id')))).val()
+    localStorage.setItem("localSchedule" , JSON.stringify(schedule))
+});
