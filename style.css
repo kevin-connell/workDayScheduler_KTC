@@ -22,6 +22,7 @@ textarea{
 }
 
 .description{
+  min-height: 70px;
   white-space: pre-wrap;
 }
 
@@ -32,7 +33,7 @@ textarea{
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
+  min-height: 80px;
   border-top: 1px solid white;;
 }
 
@@ -63,6 +64,7 @@ textarea{
   border-bottom-right-radius: 15px;
   background-color: #06AED5;
   color: white;
+  min-height: 30px;
 }
 
 .saveBtn i:hover {
